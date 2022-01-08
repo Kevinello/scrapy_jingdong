@@ -2,7 +2,7 @@
 #---------------------------------import------------------------------------
 import scrapy
 import re
-from tutorial.items import TutorialItem
+from jingdong.items import jingdongItem
 from scrapy import Request
 #---------------------------------------------------------------------------
 class JdSpider(scrapy.Spider):
@@ -58,7 +58,7 @@ class JdSpider(scrapy.Spider):
         price = response.xpath('/html/body/div[4]/div[4]/font/text()').extract()[0][1:]
         product_id = response.url.split('/')[-1][:-5]
 
-        item = TutorialItem()
+        item = jingdongItem()
         item['title'] = title
         item['price'] = price
         item['product_id'] = product_id
